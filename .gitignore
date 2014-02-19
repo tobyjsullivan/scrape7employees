@@ -1,3 +1,4 @@
 *.pyc
 /7geese.cfg
+/scraped_data.json
 

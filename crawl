@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm scraped_data.json
+scrapy crawl geese -o scraped_data.json -t json
+
