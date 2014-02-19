@@ -7,5 +7,6 @@ from scrapy.item import Item, Field
 
 class EmployeeItem(Item):
     email = Field()
-    name = Field()
+    firstName = Field()
+    lastName = Field()
     role = Field()

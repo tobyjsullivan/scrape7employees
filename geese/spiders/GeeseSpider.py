@@ -29,7 +29,9 @@ class GeeseSpider(CrawlSpider):
         for cur_employee in sel.xpath("//div[@class='member ']"):
             employee = EmployeeItem()
             employee['email'] = cur_employee.xpath(".//a[@class='member-email']/text()").extract()[0]
-            employee['name'] = cur_employee.xpath(".//span[@class='member-name']/a/text()").extract()[0]
+            name = cur_employee.xpath(".//span[@class='member-name']/a/text()").extract()[0].split(' ', 1)
+            employee['firstName'] = name[0]
+            employee['lastName'] = name[1]
             employee['role'] = cur_employee.xpath(".//span[@class='position']/text()").extract()[0]
             yield employee
         for url in sel.xpath("//ul[@class='segmented-control alphabet']//a/@href").extract():
